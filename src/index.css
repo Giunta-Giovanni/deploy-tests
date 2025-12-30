@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
+@layer base {
+  :focus-visible {
+    outline: none; /* esempio colore rosa */
+  }
+}
+.PhoneInput input {
+  padding: 0.5rem; /* uguale a p-2 */
+  height: 2rem;  /* opzionale, per uniformare l’altezza */
+}
+
+@theme {
+	--font-family: "Bodoni Moda", serif;
+	--font-weight-regular: 400;
+	--font-weight-light: 200;
+	--font-size-base: 18px;
+
+	--text-base: 18px;
+	--letter-spacing: 0.01rem;
+
+	--color-bordeaux: #4b1822;
+	--color-brand-pink: #f3cad2;
+	--color-off-white: #fffafa;
+	--color-overlay-black: #00000066;
+	--color-overlay-white: #fffafa66;
+	--color-overlay-light-white: #fffafa38;
+	--color-pure-white: #ffffff;
+
+	--bg-color: var(--color-off-white);
+	--text-color: var(--color-bordeaux);
+
+	--animate-infinite-scroll: infinite-scroll 150s linear infinite;
+
+	@keyframes infinite-scroll {
+		from {
+			transform: translateX(0);
+		}
+
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	--animate-bouncy: bouncy 2s infinite;
+
+	@keyframes bouncy {
+		0%,
+		100% {
+			transform: translateY(-25%);
+			animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+		}
+		50% {
+			transform: none;
+			animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+		}
+	}
+}
+
+:root::-webkit-scrollbar {
+	display: none;
+}
+
+:root {
+	--swiper-theme-color: var(--color-off-white) !important;
+	--swiper-pagination-bullet-inactive-color: var(--color-off-white) !important;
+	--swiper-pagination-bullet-inactive-opacity: 0.25 !important;
+	--swiper-pagination-bullet-size: 8px !important;
+	--swiper-pagination-bullet-horizontal-gap: 8px !important;
+	background-color: var(--bg-color);
+}
+
+/* ========================== */
+/* BODY DEFAULT STYLES */
+/* ========================== */
+body {
+	font-family: var(--font-family);
+	font-weight: var(--font-weight-regular);
+	font-size: var(--font-size-base);
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	letter-spacing: var(--letter-spacing);
+}
+
+/* ========================== */
+/* DARK / LIGHT MODE AUTOMATIC */
+/* ========================== */
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: var(--color-bordeaux);
+		--text-color: var(--color-off-white);
+	}
+} */
+
+/* ========================== */
+/* RESPONSIVE FONT SIZE */
+/* ========================== */
+@media (max-width: 576px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+/* ========================== */
+/* MAIN ELEMENTS */
+/* ========================== */
+main {
+	position: relative;
+}
+/*
+main.inverted {
+  background-color: var(--primary-brown);
+  color: var(--primary-white);
+}
+
+#pageWrapper.noScroll {
+  height: 100vh;
+  overflow: hidden;
+}
+*/
+/* HEADINGS */
+h1 {
+	font-size: 3rem;
+}
+h2 {
+	font-size: 2.45rem;
+	font-weight: var(--font-weight-bold);
+}
+h3 {
+	font-weight: var(--font-weight-semibold);
+}
+h4 {
+	font-size: 1.56rem;
+	font-weight: var(--font-weight-regular);
+}
+h5 {
+	font-size: 1.25rem;
+	font-weight: var(--font-weight-regular);
+}
+h6 {
+	font-size: 1rem;
+	font-weight: var(--font-weight-light);
+}
+
+/* LISTS & LINKS */
+ul li {
+	list-style: none;
+}
+/*li a,
+a {
+	text-decoration: none;
+} */
+
+/* BUTTONS
+button {
+	all: unset;
+} */
+
+/* ========================== */
+/* SWIPER LIBRARY */
+/* ========================== */
+/*
+.swiper-pagination {
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: lightgray;
+  opacity: 0.5;
+  margin: 0 0.2rem;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+*/
+
+/* remove number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* firefox */
+}
